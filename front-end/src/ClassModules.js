@@ -1,69 +1,46 @@
 
-import React,{useState} from'react';
+import React,{useState,useEffect} from'react';
+import axios from "axios";
 import './ClassModules.css';
 import {Link} from 'react-router-dom';
 import ClassInfo from './ClassInfo';
-
-const searchHistory = [
-    { courseNum: "123", semester: "Fall 2020", waitlistPos: 10 },
-    { courseNum: "456", semester: "Spring 2020", waitlistPos: 28 },
-    { courseNum: "789", semester: "Fall 2019", waitlistPos: 17 },
-    { courseNum: "000", semester: "Spring 2019", waitlistPos: 99 }
-  ];
-
-const Search = ({ courseNum, semester, waitlistPos }) => (
-    <div className = "search-item">
-        <Link to = "/ClassInfo">
-        Course Number: {courseNum}{"\t"}|{"\t"}Semester: {semester}{"\t"}|{"\t"}Waitlist Position: {waitlistPos}
-        </Link>
-    </div>
-  );
+import Course from "./Course";
 
 
 function ClassModules(props){
-
-    return (
-        <div className = "ClassModules">
-          {searchHistory.map((p, i) => (
-            <Search {...p} key={i} />
-          ))}
-        </div>
+  const [history, setHistory] = useState([]);
+  useEffect(() => {
+    // a nested function that fetches the data
+    async function fetchData() {
+      // axios is a 3rd-party module for fetching data from servers
+      const result = await axios(
+  
+        // linking to the back-end instead of to mockaroo now
+        'http://localhost:3000/class_modules'
       );
-    // return (
-    //     <React.Fragment>
-    //         <div>
-    //         value = {list}
-    //         onChange={handleChange}
-    //         </div>
-    //     </React.Fragment>
-    // )
+      //console.log(result.data);
+      // set the state variable
+      // this will cause a re-render of this component
+      setHistory(result.data);
+    }
+  
+    // fetch the data!
+    fetchData();
+  
+  // the blank array below causes this callback to be executed only once on component load
+  }, []);
+    return (
         
-        
-        
+        <>
+        {/* <h1>Animals For Sale</h1> */}
+          <div className="ClassModules">
+            {history.map(item => (
+              <Course key={item.class_num} details={item} />
+            ))}
+          </div>
+        </>
+      );
 
-
-    // return(
-        
-    //     <ol>
-    //         <li className='List-item'>
-    //             <Link to='./ClassInfo'>
-    //                 Class 1
-    //             </Link>
-    //         </li>
-    //         <li className='List-item'>
-    //             <Link to='./ClassInfo'>
-                    
-    //                 Class 2
-    //             </Link>
-    //         </li>
-    //         <li className='List-item'>
-    //             <Link to='./ClassInfo'>
-                    
-    //                 Class 3
-    //             </Link>
-    //         </li>
-    //     </ol>
-    // )
 }
 
 export default ClassModules
