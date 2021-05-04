@@ -2,11 +2,11 @@
     position: relative;
 }
 
-.inputs{
+.login_inputs{
     align-self: center;
     border: 3px solid #7851A9;
-    width: 38rem;
-    height: 3rem;
+    width: 20vw;
+    height: 5vh;
     color: gray;
     background-color: white;
     text-align: center;
@@ -15,9 +15,16 @@
     border-style: solid;
     border-color: white;
 
-
 }
-
+.logoButton{
+    position:absolute;
+    top:15vw;
+    left:40vw;
+    border-style: solid;
+    border: 0;
+    padding:0px 0px 0px 0px;
+    
+  }
 .submit-button{
     padding: 10px 20px;
     top: 40px;
@@ -26,14 +33,14 @@
     border: 2.5px;
     border-color: white;
     border-style: solid;
-    border-radius: 150px / 200px;
+    border-radius: 20vw / 20vw;
     font-size: 20px;
     background-color: #57068C;
     color:white; 
     position: relative;
     cursor:pointer;
-    font-family:fantasy;
-    font-size: 30px;
+    font-family:roboto;
+    
 }
 
 

@@ -1,33 +1,39 @@
-import logo from './logo.svg';
-//import './App.css';
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App'
+
+import React, {useState} from 'react';
 import './Home.css'
 import LoginForm from'./LoginForm'
-import { Link } from 'react-router-dom';
+import './LoginForm.css';
 // import Button from './Button'
 import MenuBar from './MenuBar';
-import Dropdown from './Dropdown';
+import newLogo from './Logos/color-correct-icon.png';
+import './App.css';
 
 const Home=(props)=>{
+  const [open, setOpen] = useState(false);
   console.log('home',props);
-  if(props.history?.location.auth){
+  let is_mobile = !!navigator.userAgent.match(/iphone|android|blackberry/ig) || false;
+  if(!is_mobile){
     return(
       // Need to use this separate outside div for positioning purposes
       <div>
-        <div className = "menu">
-          <MenuBar auth={props.history.location.auth} username={props.history.location.username}/>
+        <MenuBar/>
 
-          {/* <Dropdown/> */}
-        </div>
     
-          
+        
+        <button  className={'logoButton'}>
+                    <img src={newLogo} className="App-logo" alt="logo" />
+          </button>
+        
         
         {/* This makes it so that the top menu part does not move around */}
         <div className="Home">
-
+           {/* <GlobalStyles/>
+            <div>
+              <Dropdown open={open} setOpen={setOpen} />
+              <DropdownMenu open={open} setOpen={setOpen}/>
+            </div> */}
           <LoginForm/>
+          
         
         </div>
       </div>
@@ -37,23 +43,30 @@ const Home=(props)=>{
     return(
       // Need to use this separate outside div for positioning purposes
       <div>
-        <div className = "menu">
-          <MenuBar/>
+        <MenuBar/>
 
-          {/* <Dropdown/> */}
-        </div>
     
-          
+        <button  className={'logoButton'}  >
+                    <img src={newLogo} className="App-logo" alt="logo" 
+                    
+                    />
+          </button>
         
         {/* This makes it so that the top menu part does not move around */}
-        <div className="Home">
-
+        <div className="Home" style={{height:'80vh'}}>
+           {/* <GlobalStyles/>
+            <div>
+              <Dropdown open={open} setOpen={setOpen} />
+              <DropdownMenu open={open} setOpen={setOpen}/>
+            </div> */}
           <LoginForm/>
+          
         
         </div>
       </div>
     )
   }
+    
       
    
 };

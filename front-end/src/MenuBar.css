@@ -1,4 +1,6 @@
 .menu {
+    width: 20vw;
+    height: 60vh;
     background-color: #57068C;
     display: flex;
     flex-direction: column;
@@ -19,36 +21,34 @@
 
 }
 nav a:hover{
-    backgroud-color:white;
+    background-color:white;
 }
-.menu-links{
-    /* margin-left: 10px;
-    padding: 20px;
-    color:  white; */
-    margin-left: 10px;
-    position:relative;
-    padding:5px;
-    border: 1px;
-    border: solid;
-    border-color:white;
 
-    /* right: 100%; */
-    /* background-color:white; */
-    
-}
 .logoButton{
-    position:relative;
+    position:absolute;
+    top:15vw;
+    border-style: solid;
+    border: 0;
+    padding:0px 0px 0px 0px;
     
 }
 .logoButton:hover{
     background-color:white;
     color:black;
+    cursor: pointer;
 }
-.goodButton:hover{
-    background-color:white;
-    color:black;
+
+.many-links {
+    position: absolute;
+    /* left: 30%; */
+    /* top: 10%; */
 }
-.goodButton{
+
+.Dropdown {
+    background-color: red;
+}
+
+.dropdownButton{
     padding: 5px 10px;
     top: 10px;
     margin-left:15px;
@@ -63,6 +63,28 @@ nav a:hover{
     position: relative;
     cursor:pointer;
     font-family:fantasy;
+}
+
+.goodButton:hover{
+    background-color:white;
+    color:black;
+}
+.goodButton{
+    padding: 5px 10px;
+    position: absolute;
+    bottom:10vw;
+    margin-left:15px;
+    border: 2.5px;
+    border-color: white;
+    border-style: solid;
+    font-size: 20px;
+    /* border-radius: 10%; */
+    background-color: #57068C;
+    color:white; 
+    right:25vw;
+    position: relative;
+    cursor:pointer;
+    font-family:roboto;
     
 }
 .App-name{

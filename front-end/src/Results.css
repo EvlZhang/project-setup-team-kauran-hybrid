@@ -7,27 +7,36 @@
     font-size: calc(10px + 2vmin);
     color: white;
     white-space: pre-wrap;
-    min-height: 190vh;
+    min-height: 90vw;
     width: 100vw;
 }
 .results-button{
     padding: 10px 20px;
-    margin-left:80px;
-    margin-right:80px;
+    margin-left:10px;
+    margin-right:10px;
     border: 2.5px;
     border-color: white;
     border-style: solid;
-    border-radius: 150px / 200px;
-    font-size: 20px;
+    border-radius: 20vw / 20vw;
+
     background-color: #57068C;
     color:white; 
     position: relative;
     cursor:pointer;
-    font-family:fantasy;
-    font-size: 30px;
+    font-family:roboto;
+    font-size: 20px;
 
 }
 .results-button:hover {
     background-color:white;
     color:black;
 }
+.logoButton{
+    position:absolute;
+    top:15vw;
+    left:40vw;
+    border-style: solid;
+    border: 0;
+    padding:0px 0px 0px 0px;
+    
+  }
